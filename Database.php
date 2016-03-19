@@ -11,10 +11,8 @@ class Database{
     private $error;
     private $stmt;
 
-
     /**
      *  Constructor. Initiates database connection
-     *
      * @param String $servername The host servername that you want to connect with
      * @param String $username   A username to access the $servername
      * @param String $password   The password belonging to $username
@@ -154,7 +152,6 @@ class Database{
         return true;
     }
 
-
     /**
      * Run a batch of inserts with a transaction.
      * All will fail if 1 insert fails
@@ -209,8 +206,14 @@ class Database{
     public function transactionRollback(){
         return $this->conn->rollBack();
     }
-
-
+	
+	/**
+     * closes the DB connection
+     * @link http://php.net/manual/en/pdo.connections.php
+     */
+	public function close(){
+		$this->conn = null;
+	}
     /**
      * Set an attribute
      * @link http://php.net/manual/en/pdo.setattribute.php
@@ -230,7 +233,6 @@ class Database{
         return $this->stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-
     /**
      * returns the numnber of rows in the current statement
      * @return mixed
@@ -238,7 +240,6 @@ class Database{
     public function getRowCount(){
         return $this->stmt->rowCount();
     }
-
 
     /**
      * Dump an SQL prepared command
@@ -273,10 +274,5 @@ class Database{
     private function getConn(){
         return $this->conn;
     }
-
-
-
-
-
 
 }
