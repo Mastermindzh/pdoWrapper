@@ -129,6 +129,12 @@ class Database{
         }
     }
     
+    /**
+     * run a (prepared) query and returns a single row
+     * @param $sql query to run
+     * @param array ...$args Paramaters to fill ? in $sql with
+     * @return bool|Sqlsrv_stmt return true if there are results. false if there are non.
+     */
     public function singleQuery($sql, ...$args ){
 		$this->prepare($sql);
 
