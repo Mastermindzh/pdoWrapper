@@ -128,6 +128,16 @@ class Database{
             return true;
         }
     }
+    
+    public function singleQuery($sql, ...$args ){
+		$this->prepare($sql);
+
+        for($i = 0; $i < count($args); $i++){
+            $this->bind($i+1,$args[$i]);
+        }
+        
+        return $this->getSingle();
+	}
 
     /**
      * Run a batch of inserts

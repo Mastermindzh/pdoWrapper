@@ -64,6 +64,14 @@ if($row = $database->query($sql,"John","Smith")){
     echo 'Resultset is empty';
 }
 
+heading("If statement which passes *uses singleQuery*");
+$sql = "select FName,LName,Age,Gender from mytable where FName = ? AND LName = ?";
+if($row = $database->singleQuery($sql,"John","Smith")){
+    read_r($row);
+}else{
+    echo 'Resultset is empty';
+}
+
 heading("Insert with query method");
 try{
     $row = $database->query("INSERT INTO mytable (FName, LName, Age, Gender) VALUES (?,?,?,?)","querytest","querytest",35,"male");
