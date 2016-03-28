@@ -22,7 +22,7 @@ class Database{
     function __construct($servername, $username, $password, $database, $type = "mysql"){
         $dsn = $this->getHost($type). $servername . ';dbname=' . $database;
         $options = array(
-            PDO::ATTR_PERSISTENT => true,
+            PDO::ATTR_PERSISTENT => false,
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         );
         try {
@@ -265,7 +265,6 @@ class Database{
     public function getError(){
         return $this->error;
     }
-
 
     /**
      * return the database handler
