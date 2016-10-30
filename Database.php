@@ -1,7 +1,7 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: mastermindzh
+ * https://github.com/Mastermindzh/pdoWrapper
+ * Author: mastermindzh
  * Date: 3/13/16
  * Time: 7:45 PM
  */
